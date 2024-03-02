@@ -18,7 +18,7 @@ li{
     width: 40rem;
     height: auto;
     background-color:rgba(0, 0, 0, 0.774);
-    padding: 1rem 0.3rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
     color:orange;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -59,7 +59,7 @@ li{
     text-align: left;
     margin-top: 1rem;
     padding: 0.5rem;
-    overflow-y: scroll ;
+    overflow-y: scroll;
 }
 .task-container ul i{
     position: absolute;
