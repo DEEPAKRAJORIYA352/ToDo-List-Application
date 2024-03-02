@@ -1,20 +1,39 @@
+let newTask = document.getElementById("inp");
+let taskBox = document.querySelector(".task-box");
 
-let inputs = document.getElementById("inp");
-let text = document.querySelector(".text");
+function Add() {
+  if (newTask.value == "") {
+    alert("Please Enter task");
+  } else {
+    let newEle = document.createElement("li"); // <li> </li>
+    newEle.innerHTML = `<span>${newTask.value}</span> <i class="fa-solid fa-trash"></i>`;
 
-function Add(){
-    
-        if(inputs.value == ""){
-            alert("Please Enter task");
-        }
-        else{
-            let newEle = document.createElement("ul");
-            newEle.innerHTML = `${inputs.value} <i class="fa-solid fa-trash"></i>`;
-            text.appendChild(newEle);
-            inputs.value = "";
-            newEle.querySelector("i").addEventListener("click",Remove);
-            function Remove(){
-                newEle.remove();
-            }
-        }}
-        
+    taskBox.appendChild(newEle);
+    newTask.value = "";
+
+    storeTasks();
+  }
+}
+
+newTask.addEventListener('keypress', (event) => {
+  if(event.key === "Enter"){
+    Add();
+  }
+});
+
+taskBox.addEventListener("click", (event) => {
+  if (event.target.tagName === "I") {
+    event.target.parentElement.remove();
+    storeTasks();
+  }
+});
+
+function storeTasks(){
+    localStorage.setItem("tasks", taskBox.innerHTML);
+}
+
+function showTasks(){
+    taskBox.innerHTML = localStorage.getItem("tasks");
+}
+
+showTasks();
