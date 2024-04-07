@@ -40,6 +40,7 @@ li{
     border: none;
     padding: 1rem;
     border-radius: 1rem 0rem 0rem 1rem;
+    outline:none;
 }
 .todo button{
     width: 25%;
